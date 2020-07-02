@@ -1,0 +1,20 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="QLDoiBong" Class="DBContextDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-PGNO1ME\SQLEXPRESS;Initial Catalog=QLDoiBong;Integrated Security=True" SettingsObjectName="DAL.Properties.Settings" SettingsPropertyName="QLDoiBongConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.tblCauThu" Member="tblCauThus">
+    <Type Name="tblCauThu">
+      <Column Name="MaCauThu" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenCauThu" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SoDienThoai" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Column Name="Email" Type="System.String" DbType="NChar(30)" CanBeNull="true" />
+      <Column Name="IdDoiBong" Type="System.String" DbType="NChar(10)" CanBeNull="true" />
+      <Association Name="tblDoiBong_tblCauThu" Member="tblDoiBong" ThisKey="IdDoiBong" OtherKey="IdDoiBong" Type="tblDoiBong" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.tblDoiBong" Member="tblDoiBongs">
+    <Type Name="tblDoiBong">
+      <Column Name="IdDoiBong" Type="System.String" DbType="NChar(10) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="TenDoiBong" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Association Name="tblDoiBong_tblCauThu" Member="tblCauThus" ThisKey="IdDoiBong" OtherKey="IdDoiBong" Type="tblCauThu" />
+    </Type>
+  </Table>
+</Database>
